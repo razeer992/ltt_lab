@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Przegląd bazy danych{% endblock %}
+
+{% block content %}
+  <h1>Przegląd bazy</h1>
+  <div class="module">  
+    <div>        
+        <h3><a href="{% url 'splices_view' %}">Baza złacz taśm tarnsportowych</a></h3>
+        <h3><a href="{% url 'conveyors_view' %}">Baza przenośników</a></h3>
+        <h3><a href="{% url 'presses_view' %}">Baza pras </a></h3>
+        <h3><a href="{% url 'belts_view' %}">Baza taśm</a></h3>
+    </div>
+  </div>
+{% endblock %}

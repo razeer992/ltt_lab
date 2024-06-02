@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Złącza</h1>
+  <div class="module">
+    {% for splice in object_list %}
+      <div class="conveyor-info">
+        <h3>Utworzone: {{ splice.when_made }} | Przenośnik: {{ splice.conveyor_machine.name }} | Rodzaj taśmy: {{ splice.belt_type.name }} | | Rodzaj taśmy: {{ splice.press.name }} </h3>
+        <p>
+            <a href="{% url "splice_edit" splice.id %}">Edytuj</a>
+            <a href="{% url "splice_delete" splice.id %}">Usuń</a>
+        </p>
+      </div>
+    {% empty %}
+      <p>Brak złącz</p>
+    {% endfor %}  
+    <p>
+      <a href="{% url "splice_create" %}" class="button">Dodaj</a>
+    </p>
+  </div>
+{% endblock %}

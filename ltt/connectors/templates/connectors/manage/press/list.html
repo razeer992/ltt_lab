@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Prasy</h1>
+  <div class="module">
+    {% for press in object_list %}
+      <div class="conveyor-info">
+        <h3>Nazwa: {{ press.name }} | Producent: {{ press.manufacturer }} | Numer seryjny: {{ press.series_number }}
+          | Data produkcji: {{ press.manufacture_date }} | Szerokość: {{ press.width }} | Długość: {{ press.length }}
+          | instrukcja: {{ press.manual }}
+        </h3>
+        <p>
+            <a href="{% url "press_edit" press.id %}">Edytuj</a>
+            <a href="{% url "press_delete" press.id %}">Usuń</a>
+        </p>
+      </div>
+    {% empty %}
+      <p>Brak pras</p>
+    {% endfor %}  
+    <p>
+      <a href="{% url "press_create" %}" class="button">Dodaj</a>
+    </p>
+  </div>
+{% endblock %}

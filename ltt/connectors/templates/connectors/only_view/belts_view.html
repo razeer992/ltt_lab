@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Taśmy transportowe</h1>
+  <div class="module">
+    {% for belt in belts %}
+    <div>        
+        <h3>{{belt.id}} | {{belt.owner}} | {{belt.name}} | <a href="{% url 'belt_view' belt.id %}">View</a></h3>
+    </div>
+    {% empty %}
+      <p>Brak taśm</p>
+    {% endfor %}  
+  </div>
+{% endblock %}

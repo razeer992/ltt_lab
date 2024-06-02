@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Taśmy transportowe</h1>
+  <div class="module">
+    {% for belt in object_list %}
+      <div class="conveyor-info">
+        <h3>Nazwa: {{ belt.name }} | Wytrzymałość: {{ belt.endurance }} | Szerokość: {{ belt.width }} | opis: {{ belt.describe }} | utworzony przez: {{ belt.owner }}</h3>
+        <p>
+            <a href="{% url "belt_edit" belt.id %}">Edytuj</a>
+            <a href="{% url "belt_delete" belt.id %}">Usuń</a>
+        </p>
+      </div>
+    {% empty %}
+      <p>Brak taśm</p>
+    {% endfor %}  
+    <p>
+      <a href="{% url "belt_create" %}" class="button">Dodaj</a>
+    </p>
+  </div>
+{% endblock %}

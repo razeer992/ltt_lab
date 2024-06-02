@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Przenośniki taśmowe</h1>
+  <div class="module">
+    {% for conveyor in object_list %}
+      <div class="conveyor-info">
+        <h3>Nazwa: {{ conveyor.name }} | Lokalizacja: {{ conveyor.mine }} | utworzony przez: {{ conveyor.owner }}</h3>
+        <p>
+            <a href="{% url "conveyor_edit" conveyor.id %}">Edytuj</a>
+            <a href="{% url "conveyor_delete" conveyor.id %}">Usuń</a>
+        </p>
+      </div>
+    {% empty %}
+      <p>Brak przenośników</p>
+    {% endfor %}  
+    <p>
+      <a href="{% url "conveyor_create" %}" class="button">Dodaj przenośnik</a>
+    </p>
+  </div>
+{% endblock %}

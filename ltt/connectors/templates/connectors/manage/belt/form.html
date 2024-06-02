@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if object %}
+    Edytuj "{{ object.name }}"
+  {% else %}
+    Dodaj nową taśmę 
+  {% endif %} 
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if object %}
+      Edytuj "{{ object.name }}"
+    {% else %}
+      Dodaj 
+    {% endif %} 
+  </h1>
+  <div class="module">
+    <h2>Informacje o taśmie</h2>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Zapisz"></p>
+    </form> 
+  </div>
+{% endblock %}

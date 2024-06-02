@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Usuń przenośnik
+{% endblock %}
+
+{% block content %}
+  <h1>Usuń przenośnik "{{ object.name }}"</h1>
+  <div class="module">
+    <form action="" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p>Czy na pewno chcesz usunąć?</p>
+        <p><input type="submit" value="Usuń"></p>
+    </form> 
+  </div>
+{% endblock %}

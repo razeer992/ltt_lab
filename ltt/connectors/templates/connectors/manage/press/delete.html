@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Usuń prasę
+{% endblock %}
+
+{% block content %}
+  <h1>Usuń prasę "{{ object.name }}"</h1>
+  <div class="module">
+    <form action="" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p>Czy na pewno chcesz usunąć?</p>
+        <p><input type="submit" value="Zapisz"></p>
+    </form> 
+  </div>
+{% endblock %}

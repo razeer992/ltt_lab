@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}LTT_Connectors{% endblock %}</title>
+        <link href="{% static "css/base.css" %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="header">
+            <a href="/" class="logo">LTT_Connectors</a>
+
+            <ul class="menu">
+                
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                           
+                            <button type="submit" class="submit">logout</button>
+                        </form></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">zaloguj</a></li>  
+                {% endif %}
+            </ul>
+            <ul class="menu">
+                <li><a href="{% url 'manage_conveyor_list' %}" class="button" >Moje przenośniki</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{% url 'manage_press_list' %}" class="button" >Moje prasy</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{% url 'manage_belt_list' %}" class="button" >Moje taśmy</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{% url 'manage_splice_list' %}" class="button" >Moje złącza</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="{% url 'base_view' %}" class="button" >Przegląd bazy</a></li>
+            </ul>
+            <ul class="menu">
+                <li>Witaj {{ request.user.first_name|default:request.user.username }}</li>
+            </ul>
+        </div>
+
+        
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

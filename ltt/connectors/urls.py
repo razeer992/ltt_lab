@@ -1,0 +1,32 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name="home"),
+    path('base_view/', views.base_view, name='base_view'),
+    path('profile/', views.profile, name='profile'),
+    path('cmine/', views.ManageConveyorListView.as_view(), name='manage_conveyor_list'),
+    path('ccreate/', views.ConveyorCreateView.as_view(), name='conveyor_create'),
+    path('<pk>/cedit/', views.ConveyorUpdateView.as_view(), name='conveyor_edit'),
+    path('<pk>/cdelete/', views.ConveyorDeleteView.as_view(), name='conveyor_delete'),
+    path('conveyors_view/', views.conveyors_view, name='conveyors_view'),
+    path('conveyor_view/<int:id>/', views.conveyor_view, name="conveyor_view"),
+    path('bmine/', views.ManageBeltListView.as_view(), name='manage_belt_list'),
+    path('bcreate/', views.BeltCreateView.as_view(), name='belt_create'),
+    path('<pk>/bedit/', views.BeltUpdateView.as_view(), name='belt_edit'),
+    path('<pk>/bdelete/', views.BeltDeleteView.as_view(), name='belt_delete'),
+    path('belts_view/', views.belts_view, name='belts_view'),
+    path('belt_view/<int:id>/', views.belt_view, name="belt_view"),
+    path('pmine/', views.ManagePressListView.as_view(), name='manage_press_list'),
+    path('pcreate/', views.PressCreateView.as_view(), name='press_create'),
+    path('<pk>/pedit/', views.PressUpdateView.as_view(), name='press_edit'),
+    path('<pk>/pdelete/', views.PressDeleteView.as_view(), name='press_delete'),
+    path('presses_view/', views.presses_view, name='presses_view'),
+    path('press_view/<int:id>/', views.press_view, name="press_view"),
+    path('smine/', views.ManageSpliceListView.as_view(), name='manage_splice_list'),
+    path('screate/', views.SpliceCreateView.as_view(), name='splice_create'),
+    path('<pk>/sedit/', views.SpliceUpdateView.as_view(), name='splice_edit'),
+    path('<pk>/sdelete/', views.SpliceDeleteView.as_view(), name='splice_delete'),
+    path('splices_view/', views.splices_view, name='splices_view'),
+    path('splice_view/<int:id>/', views.splice_view, name="splice_view"),
+]

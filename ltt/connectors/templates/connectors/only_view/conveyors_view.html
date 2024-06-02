@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Przenośniki taśmowe</h1>
+  <div class="module">
+    {% for conveyor in conveyors %}
+    <div>        
+        <h3>{{conveyor.id}} | {{conveyor.owner}} | {{conveyor.name}} | {{conveyor.mine}}  | <a href="{% url 'conveyor_view' conveyor.id %}">View</a></h3>
+    </div>
+    {% empty %}
+      <p>Brak przenośników</p>
+    {% endfor %}  
+  </div>
+{% endblock %}

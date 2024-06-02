@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Złącza</h1>
+  <div class="module">
+    {% for splice in splices %}
+    <div>        
+        <h3>{{splice.id}} | {{splice.owner}} | <a href="{% url 'splice_view' splice.id %}">View</a></h3>
+    </div>
+    {% empty %}
+      <p>Brak złącz</p>
+    {% endfor %}  
+  </div>
+{% endblock %}

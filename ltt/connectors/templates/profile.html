@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+  <h1>Przegląd profilu</h1>
+  <div class="module">
+    <h3>Profil użytkownika: {{ request.user.first_name|default:request.user.username }}</h3>
+    
+    
+  </div>
+{% endblock %}

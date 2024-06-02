@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Złącze</h1>
+  <div class="module">
+    <div>        
+        <h3>Index</h3><h4>{{splice.id}}</h4>
+        <h3>photo</h3><h4>{{splice.photo}}</h4>
+        <img src="{{ splice.img1.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+    </div>
+  </div>
+{% endblock %}

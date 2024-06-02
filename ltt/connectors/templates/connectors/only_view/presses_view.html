@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Przenośniki taśmowe{% endblock %}
+
+{% block content %}
+  <h1>Prasy do złącz</h1>
+  <div class="module">
+    {% for press in presses %}
+    <div>        
+        <h3>{{press.id}} | {{press.owner}} | {{press.name}} |<a href="{% url 'press_view' press.id %}">View</a></h3>
+    </div>
+    {% empty %}
+      <p>Brak pras</p>
+    {% endfor %}  
+  </div>
+{% endblock %}
